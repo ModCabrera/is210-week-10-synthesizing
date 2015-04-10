@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Just some docstring"""
-import data
-import pprint
+"""Contains Function that returns customer info, total orders, orders total"""
 
 
 def sum_orders(customers, orders):
@@ -37,14 +35,8 @@ def sum_orders(customers, orders):
                 results[customerid]['total'] += total
                 results[customerid]['orders'] += 1
             else:
-                results.update({customerid:{'total': total}})
+                results.update({customerid: {'total': total}})
                 results[customerid].update({'orders': 0})
                 results[customerid]['orders'] += 1
                 results[customerid].update(customers[customerid])
     return results
-
-    #pprint.pprint(results)
-
-
-if __name__ == '__main__':
-    pprint.pprint(sum_orders(data.CUSTOMERS, data.ORDERS))
